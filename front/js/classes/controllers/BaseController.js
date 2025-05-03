@@ -14,7 +14,7 @@ export class BaseController {
   handleClickNav(e) {
     if (e.target.classList.contains("agendaNav")) {
       console.log(e.target);
-    } else if (e.target.classList.contains("toDoListNav")) {
+    } else if (e.target.classList.contains("toDoListNav")) { 
       console.log(e.target);
     } else if (e.target.classList.contains("photosNav")) {
       console.log(e.target);
