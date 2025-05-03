@@ -1,6 +1,38 @@
-export class Accueil {
+export class AccueilUi {
     constructor() {
+        this.root = document.querySelector("#root");
+    }
 
+    
+    determinateDayElement() {
+        return document.querySelector(".frontColor");
+    }
+
+    loadCards(weekRangeDateAndCards, $dayEl) {
+        const dayClicked = $dayEl.querySelector(".agenda__container__header__day--day").textContent;
+        const dayObj = weekRangeDateAndCards.filter((cell) => cell.day === dayClicked);
+        const cards = dayObj[0].cards;
+        const ulContainer = document.querySelector(".agenda__container__main__cards");
+        ulContainer.innerHTML = "";
+
+        for (let i = 0; i < cards.length; i++) {
+            const li = this.createElem("li", "agenda__container__main__cards__li");
+            li.setAttribute("data-id", cards[i].id);
+            const img = this.createElem("img", "agenda__container__main__cards__img");
+            img.src = `./assets/pictures/icons/${cards[i].matiere}.png`;
+            const para = this.createElem("p", "agenda__container__main__cards__para");
+            para.textContent = cards[i].name;
+            li.appendChild(img);
+            li.appendChild(para);
+            ulContainer.appendChild(li);
+        }
+
+    }
+
+    createElem(elementKind, elementClass) {
+        const element = document.createElement(elementKind);
+        element.className = elementClass;
+        return element;
     }
 
     displayAccueil() {

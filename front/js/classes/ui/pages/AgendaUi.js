@@ -1,18 +1,22 @@
-export class Agenda {
+export class AgendaUi {
     constructor() {
-
+        this.root = document.querySelector("#root");
     }
 
     determinateDayElement() {
         return document.querySelector(".frontColor");
     }
 
-
+    createElem(elementKind, elementClass) {
+        const element = document.createElement(elementKind);
+        element.className = elementClass; 
+        return element;
+    }
+    
     displayAgenda(weekRangeDateAndCards) {
 
         const agenda = this.createElem("div", "agenda");
         const agenda__container = this.createElem("section", "agenda__container fondColor");
-
 
         const agenda__container__header = this.createElem("div", "agenda__container__header entreColor");
         const days = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];

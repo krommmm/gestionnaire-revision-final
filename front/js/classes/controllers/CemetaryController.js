@@ -1,9 +1,9 @@
 import { BaseController } from "./BaseController.js";
 
 export class CemetaryController {
-    constructor(pagesUI, mCards, mDate, uiCards, uiModal, mModal, mAgenda) {
-        this.pagesUI = pagesUI;
-        this.mCards = mCards;
+    constructor(CemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda) {
+        this.CemetaryUi = CemetaryUi;
+        this.mCards = mCards; 
         this.mDate = mDate;
         this.uiCards = uiCards;
         this.uiModal = uiModal;
@@ -12,7 +12,7 @@ export class CemetaryController {
         this.init();
     }
 
-    init() {
+    init() { 
         this.isCemetaryNeeded();
         this.mCards.addListener(() => this.isCemetaryNeeded()); 
         this.bindEvents();
@@ -33,7 +33,7 @@ export class CemetaryController {
     async isCemetaryNeeded() {
         const ghostsCards = this.mCards.isCemetaryNeeded();
         setTimeout(() => {
-            this.pagesUI.displayCemetary(ghostsCards);
+            this.CemetaryUi.displayCemetary(ghostsCards);
         }, 30);
 
     }

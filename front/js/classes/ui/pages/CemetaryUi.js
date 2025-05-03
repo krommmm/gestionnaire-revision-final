@@ -1,6 +1,10 @@
-export class Cemetary {
+export class CemetaryUi {
     constructor() {
-
+        this.root = document.querySelector("#root");
+        this.monthNames = [
+            "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+        ];
     }
 
     getPage() {
@@ -20,7 +24,7 @@ export class Cemetary {
     }
 
     displayCemetary(ghostsCards) {
-        this.cleanCemetaryElements();
+        this.cleanCemetaryElements(); 
         if (ghostsCards.length <= 0) {
             return;
         }

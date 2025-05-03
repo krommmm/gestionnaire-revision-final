@@ -1,5 +1,19 @@
 export class BaseController {
   constructor() {
+    this.isAgenda = true;
+    this.isTodoList = false;
+    this.isPhotos = false;
+    this.isRoadMap = false;
+
+
+    this.classMap = {
+      agendaNav: 'isAgenda',
+      toDoListNav: 'isTodoList',
+      photosNav: 'isPhotos',
+      roadMapNav: 'isRoadMap'
+    };
+
+    this.handleClickNav = this.handleClickNav.bind(this); 
     this.initBase();
   }
 
@@ -8,20 +22,32 @@ export class BaseController {
   }
 
   bindCommonEvents() {
-    document.addEventListener("click", this.handleClickNav.bind(this));
+    document.addEventListener("click", this.handleClickNav);
   }
 
   handleClickNav(e) {
-    if (e.target.classList.contains("agendaNav")) {
-      console.log(e.target);
-    } else if (e.target.classList.contains("toDoListNav")) { 
-      console.log(e.target);
-    } else if (e.target.classList.contains("photosNav")) {
-      console.log(e.target);
-    } else if (e.target.classList.contains("roadMapNav")) {
-      console.log(e.target);
+    for (const className in this.classMap) {
+      if (e.target.classList.contains(className)) {
+        console.log(e.target);
+        this.majNavBool(this.classMap[className]);
+        break;
+      }
     }
   }
 
+  majNavBool(activeKey) {
+    Object.values(this.classMap).forEach(key => {
+      this[key] = false;
+    });
 
+    if (Object.values(this.classMap).includes(activeKey)) {
+      this[activeKey] = true;
+    } else {
+      console.warn(`State "${activeKey}" is not recognized.`);
+    }
+  }
+
+  destroy() {
+    document.removeEventListener("click", this.handleClickNav);
+  }
 }

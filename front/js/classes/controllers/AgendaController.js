@@ -1,9 +1,11 @@
 import { BaseController } from "./BaseController.js";
 
 export class AgendaController extends BaseController {
-    constructor(pagesUI, mCards, mDate, uiCards, uiModal, mModal, mAgenda) {
+    constructor(acceuilUi, agendaUi, cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda) {
         super();
-        this.pagesUI = pagesUI;
+        this.acceuilUi = acceuilUi;
+        this.agendaUi = agendaUi;
+        this.cemetaryUi = cemetaryUi;
         this.mCards = mCards;
         this.mDate = mDate;
         this.uiCards = uiCards;
@@ -113,7 +115,7 @@ export class AgendaController extends BaseController {
     }
 
     displayRoot(weekRangeDateAndCards) {
-        this.mCards.cards.length <= 0 ? this.pagesUI.displayAccueil() : this.pagesUI.displayAgenda(weekRangeDateAndCards);
+        this.mCards.cards.length <= 0 ? this.acceuilUi.displayAccueil() : this.agendaUi.displayAgenda(weekRangeDateAndCards);
     }
 
     handleClickBtnAdd(e) {
@@ -149,7 +151,7 @@ export class AgendaController extends BaseController {
 
     loadCards($dayEl) {
         const weekRangeDateAndCards = this.tryAgendaHebdo();
-        this.pagesUI.loadCards(weekRangeDateAndCards, $dayEl);
+        this.acceuilUi.loadCards(weekRangeDateAndCards, $dayEl);
     }
 
     changeDay($dayEl) {
@@ -161,7 +163,9 @@ export class AgendaController extends BaseController {
     }
 
     determinateDay() {
-        const $dayEl = this.pagesUI.determinateDayElement();
+        const $dayEl = this.acceuilUi.determinateDayElement();
         return $dayEl;
     }
+
+    
 }

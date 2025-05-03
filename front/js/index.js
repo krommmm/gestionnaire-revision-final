@@ -6,7 +6,10 @@ import { UICards } from "./classes/ui/UICards.js";
 import { UIModal } from "./classes/ui/UIModal.js";
 import { MModal } from "./classes/models/MModal.js";
 import { MAgenda } from "./classes/models/MAgenda.js";
-import {CemetaryController} from "./classes/controllers/CemetaryController.js";
+import { CemetaryController } from "./classes/controllers/CemetaryController.js";
+import { AccueilUi } from "./classes/ui/pages/AccueilUi.js";
+import { AgendaUi } from "./classes/ui/pages/AgendaUi.js";
+import { CemetaryUi } from "./classes/ui/pages/CemetaryUi.js";
 
 const pagesUi = new PagesUI();
 const mDate = new MDate();
@@ -15,6 +18,9 @@ const uiCards = new UICards();
 const uiModal = new UIModal();
 const mModal = new MModal();
 const mAgenda = new MAgenda(mDate);
+const acceuilUi = new AccueilUi();
+const agendaUi = new AgendaUi();
+const cemetaryUi = new CemetaryUi();
 
 function getPageName() {
     const str = window.location.href;
@@ -31,13 +37,13 @@ const page = getPageName();
 
 switch (page) {
     case "index":
-        new AgendaController(pagesUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
-        new CemetaryController(pagesUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
+        new AgendaController(acceuilUi,agendaUi,cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
+        new CemetaryController(cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
         break;
 
     case "":
-        new AgendaController(pagesUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
-        new CemetaryController(pagesUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
+        new AgendaController(acceuilUi,agendaUi,cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
+        new CemetaryController(cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
         break;
 
 
