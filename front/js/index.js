@@ -37,15 +37,11 @@ const page = getPageName();
 
 switch (page) {
     case "index":
-        new AgendaController(acceuilUi,agendaUi,cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
-        new CemetaryController(cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
-        break;
-
     case "":
-        new AgendaController(acceuilUi,agendaUi,cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
+        new AgendaController(acceuilUi, agendaUi, cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
         new CemetaryController(cemetaryUi, mCards, mDate, uiCards, uiModal, mModal, mAgenda);
         break;
 
-
-    default: throw new Error("Page introuvable");
+    default:
+        throw new Error("Page introuvable");
 }
