@@ -1,4 +1,4 @@
-.presentation{
+.presentation {
     width: 200px;
 }
 
@@ -18,9 +18,10 @@
 }
 
 /*************CARDS*************/
-.presentation__cards__categories{
-    margin-top:20px;
+.presentation__cards__categories {
+    margin-top: 20px;
 }
+
 .presentation__cards__content {
     background-color: #191937;
     color: white;
@@ -46,6 +47,13 @@
     width: 3px;
     background-color: rgb(50, 115, 250);
 }
+.presentation__cards a{
+    text-decoration: none;
+}
+
+.presentation__cards__content ul li:hover {
+    color: white;
+}
 
 .presentation__cards li {
     max-width: 173px;
@@ -58,7 +66,13 @@
     margin-left: 5px;
     margin-bottom: 7px;
     font-size: 12px;
+    transition: .4s;
 }
+
+.presentation__cards li:hover {
+    transform: scale(1.1) translateX(-3px) translateY(3px);
+}
+
 
 /*****************CEMETERY**********/
 

@@ -15,15 +15,11 @@ export class UIModal {
         this.modal.innerHTML = `
         <div class=modal>
  <div class="modal__quit">
-         <div class="modal__header__matieres">
-                <img src="./assets/pictures/icons/js_icon.png" />
-                <img src="./assets/pictures/icons/ts_icon.png" />
-                <img src="./assets/pictures/icons/debian_icon.png" />
-            </div>
+            <h2>Create a card</h2>
             <i class="fa-solid fa-square-xmark modal__quit--quitBtn"></i>
         </div>
  
-        <h2>Create a card</h2>
+    
         <form id="form-AddCard" method="POST">
             <div class="form-AddCard__inputs">
                 <input type="text" name="card" placeholder="Ex: Asynchrone" />
@@ -39,7 +35,7 @@ export class UIModal {
                     <option value="php_icon">PHP</option>
                 </select>
             </div>
-            <button class="btn-red" type="submit">Submit</button>
+            <button class="btn-blue" type="submit">Submit</button>
         </form>
         </div>
                 `;

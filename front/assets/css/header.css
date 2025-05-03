@@ -1,9 +1,53 @@
 header {
     padding: 15px;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+    width: 669px;
+    margin-top: 25px;
+}
+
+header ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-start;
+
+}
+
+header ul div {
+    background-color: rgb(37, 37, 75);
+    border-top: 2px solid rgb(87, 87, 146);
+    overflow: hidden;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+header ul li {
+    padding: 0px 15px;
+    cursor: pointer;
+    transition: all .16s ease-out;
+    position: relative;
+    color: rgb(92, 92, 142);
+}
+
+header ul li::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 130%;
+    left: 15px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+
+header ul div:hover li {
+    transform: translateY(-130%);
 }
 
 #formSearchBar {
-display:flex;
+    display: flex;
 }
 
 #formSearchBar input {
@@ -40,15 +84,16 @@ input:focus {
     top: 9px;
     right: 11px;
 }
-.magicStorage{
+
+.magicStorage {
     margin-left: 15px;
-    cursor:pointer;
     cursor: pointer;
-  background-color: #4567b7;
-  border: none;
-  padding: 10px;
-  border-radius: 3px;
-  color: white;
+    cursor: pointer;
+    background-color: #4567b7;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
 }
 
 .formInputContainer {

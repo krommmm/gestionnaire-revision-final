@@ -75,7 +75,7 @@ export class PagesUI {
         const ul = this.createElem("ul", "agenda__container__main__cards");
         agenda__container__main.appendChild(ul);
 
-        const btn = this.createElem("button", "btn-blue btn-addCard");
+        const btn = this.createElem("button", "btn-red btn-addCard");
         btn.textContent = "Add card";
         agenda__container__main.appendChild(btn);
 
@@ -129,6 +129,7 @@ export class PagesUI {
         if (cemetaryElement) cemetaryElement.remove();
         if (cemetaryCardsElement) cemetaryCardsElement.remove();
     }
+
     getPage() {
         const str = window.location.href;
         const url = new URL(str);
@@ -138,6 +139,7 @@ export class PagesUI {
         }
         return page;
     }
+    
     createElem(elementKind, elementClass) {
         const element = document.createElement(elementKind);
         element.className = elementClass;
@@ -270,7 +272,7 @@ export class PagesUI {
             const numPage = this.createElem("div", "cemetary__body__pagination__container--square");
             numPage.textContent = i + 1;
             a.appendChild(numPage);
-            numeros.appendChild(a);
+            numeros.appendChild(a); 
 
         }
     }
